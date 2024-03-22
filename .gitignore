@@ -1,4 +1,3 @@
-bin/
-obj/Debug/
-.vs/
+/.vs
 /obj/Debug
+/obj
