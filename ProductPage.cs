@@ -35,6 +35,15 @@ namespace TBPsoftTest2
         {
 
         }
+        
+        protected IWebElement sendText(IWebElement element, String text)
+        {
+            waitForElement(element);
+            clickElement(element);
+            element.Clear();
+            element.SendKeys(text);
+            return element;
+        }
 
         [Test]
         public void Test3()
@@ -71,8 +80,9 @@ namespace TBPsoftTest2
 
             Assert.False(list_prvaStrana.SequenceEqual(list_drugaStrana));
 
-            inputSearch.Clear();
-            inputSearch.SendKeys("Egyptian Cotton Towel");
+            //inputSearch.Clear();
+            //inputSearch.SendKeys("Egyptian Cotton Towel");
+            sendText(inputSearch, "Egyptian Cotton Towel");
 
             //searchButton.Click();
             clickElement(searchButton);
