@@ -42,7 +42,16 @@ namespace TBPsoftTest2
             webDriver.ExecuteScript("arguments[0].click();", element);
             //return element;
         }
+        protected IWebElement sendText(IWebElement element, String text)
+        {
+            waitForElement(element);
+            clickElement(element);
+            element.Clear();
+            element.SendKeys(text);
+            return element;
+        }
 
+        /*
         [SetUp]
         public void Setup()
         {
@@ -53,7 +62,7 @@ namespace TBPsoftTest2
         public void TearDown()
         {
             webDriver.Quit();
-        }
+        }*/
 
 
         /*[Test]
@@ -70,5 +79,5 @@ namespace TBPsoftTest2
             Assert.That(val, Is.EqualTo("trt"));
         }
         */
-}
+    }
 }
