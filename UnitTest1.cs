@@ -34,7 +34,7 @@ namespace TBPsoftTest2
             webDriver.ExecuteScript("arguments[0].scrollIntoView(true);", element);
         }
         
-        protected void clickElement(WebDriver driver, IWebElement element)
+        protected void clickElement(IWebElement element)
         {
             waitForElement(element);
             scrollToElement(webDriver, element);

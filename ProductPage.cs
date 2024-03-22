@@ -57,7 +57,7 @@ namespace TBPsoftTest2
                 list_prvaStrana.Add(productItem.Text);
             }
 
-            clickElement(webDriver, secondPageLink);
+            clickElement(secondPageLink);
 
             Thread.Sleep(1000);
             var productItems2 = webDriver.FindElements(By.XPath(".//div[contains(@class, 'product-item')]//h5"));
@@ -75,7 +75,7 @@ namespace TBPsoftTest2
             inputSearch.SendKeys("Egyptian Cotton Towel");
 
             //searchButton.Click();
-            clickElement(webDriver, searchButton);
+            clickElement(searchButton);
             Thread.Sleep(1000);
             //var productItemsSearch = webDriver.FindElements(By.ClassName("product-item"));
             var nadjeno = productItemsSearch.Count;

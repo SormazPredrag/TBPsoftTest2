@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5Klr7jU3fAXSVUTA62ly1SK/qTcgdoZzY8KCRVtTxjXUIspYkvUNVZZ9N48INKwSUAt2/5r4Jpa0//nyhRbABA==",
+  "dgSpecHash": "KKC27888lt9r6KDXGuBWn/j9m3qgs4o8OWOvc9MCkawzrOBumZGkGFhAY8EwuHIjLlxvsjWD0Ul4UXPyGSlZYQ==",
   "success": true,
   "projectFilePath": "D:\\Users\\Natasa\\source\\repos\\TBPsoftTest2\\TBPsoftTest2.csproj",
   "expectedPackageFiles": [
@@ -28,7 +28,10 @@
     "C:\\Users\\Natasa\\.nuget\\packages\\system.security.accesscontrol\\5.0.0\\system.security.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\Natasa\\.nuget\\packages\\system.security.principal.windows\\5.0.0\\system.security.principal.windows.5.0.0.nupkg.sha512",
     "C:\\Users\\Natasa\\.nuget\\packages\\system.text.encoding.codepages\\7.0.0\\system.text.encoding.codepages.7.0.0.nupkg.sha512",
-    "C:\\Users\\Natasa\\.nuget\\packages\\webdrivermanager\\2.17.2\\webdrivermanager.2.17.2.nupkg.sha512"
+    "C:\\Users\\Natasa\\.nuget\\packages\\webdrivermanager\\2.17.2\\webdrivermanager.2.17.2.nupkg.sha512",
+    "C:\\Users\\Natasa\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.17\\microsoft.windowsdesktop.app.ref.7.0.17.nupkg.sha512",
+    "C:\\Users\\Natasa\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.17\\microsoft.netcore.app.ref.7.0.17.nupkg.sha512",
+    "C:\\Users\\Natasa\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.17\\microsoft.aspnetcore.app.ref.7.0.17.nupkg.sha512"
   ],
   "logs": []
 }
