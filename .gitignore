@@ -1,5 +1,6 @@
 /.vs
 /obj/Debug
 /obj
+/obj/**
 /.vs
 /.vs/TBPsoftTest2
