@@ -21,13 +21,11 @@ namespace TBPsoftTest2
             var wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(3))
             {
                 PollingInterval = TimeSpan.FromSeconds(3),
-            };
-            //wait.Until(ExpectedConditions.ElementIsVisible(by));
-            
+            };         
             wait.Until(_ => element.Displayed && element.Enabled);
         }
         
-        public void scrollToElement(WebDriver driver, IWebElement element)
+        protected void scrollToElement(IWebElement element)
         {
             waitForElement(element);
             //new Actions(driver).ScrollToElement(element).Perform();
@@ -37,7 +35,7 @@ namespace TBPsoftTest2
         protected void clickElement(IWebElement element)
         {
             waitForElement(element);
-            scrollToElement(webDriver, element);
+            scrollToElement(element);
             //element.Click();
             webDriver.ExecuteScript("arguments[0].click();", element);
             //return element;
