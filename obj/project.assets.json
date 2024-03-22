@@ -1532,11 +1532,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\Natasa\\source\\repos\\TBPsoftTest2\\TBPsoftTest2.csproj",
+      "projectUniqueName": "D:\\Users\\Natasa\\source\\repos\\SormazPredrag\\TBPsoftTest2\\TBPsoftTest2.csproj",
       "projectName": "TBPsoftTest2",
-      "projectPath": "D:\\Users\\Natasa\\source\\repos\\TBPsoftTest2\\TBPsoftTest2.csproj",
+      "projectPath": "D:\\Users\\Natasa\\source\\repos\\SormazPredrag\\TBPsoftTest2\\TBPsoftTest2.csproj",
       "packagesPath": "C:\\Users\\Natasa\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\Natasa\\source\\repos\\TBPsoftTest2\\obj\\",
+      "outputPath": "D:\\Users\\Natasa\\source\\repos\\SormazPredrag\\TBPsoftTest2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
