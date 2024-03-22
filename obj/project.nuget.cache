@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KKC27888lt9r6KDXGuBWn/j9m3qgs4o8OWOvc9MCkawzrOBumZGkGFhAY8EwuHIjLlxvsjWD0Ul4UXPyGSlZYQ==",
+  "dgSpecHash": "fy7t6yIUzVU2NcZH/ci8d5gNMP1guKdtX233ew03eVBhxdHIT5g5JehSMtOO/y40xcdLLHwc37WiRsBdZxPZ6Q==",
   "success": true,
-  "projectFilePath": "D:\\Users\\Natasa\\source\\repos\\TBPsoftTest2\\TBPsoftTest2.csproj",
+  "projectFilePath": "D:\\Users\\Natasa\\source\\repos\\SormazPredrag\\TBPsoftTest2\\TBPsoftTest2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Natasa\\.nuget\\packages\\anglesharp\\1.1.0\\anglesharp.1.1.0.nupkg.sha512",
     "C:\\Users\\Natasa\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
