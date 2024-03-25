@@ -24,7 +24,7 @@ namespace TBPsoftTest2
         }
 
         [Test]
-        public void Test3()
+        public void Test()
         {
             PageFactory.InitElements(webDriver, this);
 
