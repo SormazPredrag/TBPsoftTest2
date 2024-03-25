@@ -1,19 +1,9 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Interactions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using SeleniumExtras.PageObjects;
-using AngleSharp.Dom;
-using System.Security.Cryptography.X509Certificates;
 
-namespace TBPsoftTest2
+namespace TBPsoftTest2.Pages
 {
-    public class ProductPage : BasePage
+    public class ProductPage : BasePage, IHavePagination
     {
         //private WebDriver driver { get; set; } = null;
         [FindsBy(How = How.XPath, Using = ".//div[contains(@class, 'product-item')]//h5")]
@@ -31,11 +21,30 @@ namespace TBPsoftTest2
 
         public List<string> list_prvaStrana;
         public List<string> list_drugaStrana;
-        public ProductPage() : base()
+        public ProductPage(IWebDriver driver) : base(driver)
         //public ProductPage(WebDriver driver) : base(driver)
         {
 
         }
 
+        public void GetCurrentPageNumber()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OpenNextPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OpenPreviousPage()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GoOnPage(int pageNumber)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
