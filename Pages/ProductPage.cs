@@ -18,33 +18,41 @@ namespace TBPsoftTest2.Pages
         public IWebElement inputSearch;
         [FindsBy(How = How.XPath, Using = ".//*[contains(text(),'Price: $49.99')]")]
         public IWebElement productPrice1;
+        [FindsBy(How = How.XPath, Using = ".//a[contains(text(), 'Next')]")]
+        public IWebElement nextPageLink;
+        [FindsBy(How = How.XPath, Using = ".//a[contains(text(), 'Previous')]")]
+        public IWebElement previousPageLink;
+        [FindsBy(How = How.XPath, Using = ".//ul[contains(@class, 'pagination')]//li[contains(@class, 'active')]//a")]
+        public IWebElement currentPageLink;
 
         public List<string> list_prvaStrana;
         public List<string> list_drugaStrana;
         public ProductPage(IWebDriver driver) : base(driver)
-        //public ProductPage(WebDriver driver) : base(driver)
         {
 
         }
 
-        public void GetCurrentPageNumber()
+        public int GetCurrentPageNumber()
         {
-            throw new NotImplementedException();
+            int pageNumber = Int32.Parse(currentPageLink.Text);
+            return pageNumber;
         }
 
         public void OpenNextPage()
         {
-            throw new NotImplementedException();
+            ClickElement(nextPageLink);
         }
 
         public void OpenPreviousPage()
         {
-            throw new NotImplementedException();
+            ClickElement(previousPageLink);
         }
 
         public void GoOnPage(int pageNumber)
         {
-            throw new NotImplementedException();
+            string pagePath = $".//a[@href='/Store?pageNumber={pageNumber.ToString()}']";
+            var pageNumberLink = Driver.FindElement(By.XPath(pagePath));
+            ClickElement(pageNumberLink);
         }
     }
 }

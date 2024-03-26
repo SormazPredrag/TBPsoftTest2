@@ -30,18 +30,21 @@ namespace TBPsoftTest2.Tests
             _productPage.list_prvaStrana = new List<string>();
             _productPage.list_drugaStrana = new List<string>();
 
+            Console.WriteLine("Current page is: " + _productPage.GetCurrentPageNumber().ToString());
             var productItems = driver.FindElements(By.XPath(".//div[contains(@class, 'product-item')]//h5"));
             Console.WriteLine("Prebrojano 1: " + _productPage.list_productItems.Count);
             Assert.True(productItems.Count == 12);
-
             foreach (var productItem in _productPage.list_productItems)
             {
                 //Console.WriteLine(productItem.Text);
                 _productPage.list_prvaStrana.Add(productItem.Text);
             }
-            _productPage.ClickElement(_productPage.secondPageLink);
+            //_productPage.ClickElement(_productPage.secondPageLink);
+            //_productPage.OpenNextPage();
+            _productPage.GoOnPage(2);
 
             Thread.Sleep(1000);
+            Assert.True(_productPage.GetCurrentPageNumber() == 2);
             var productItems2 = driver.FindElements(By.XPath(".//div[contains(@class, 'product-item')]//h5"));
             Console.WriteLine("Prebrojano 2: " + _productPage.list_productItems.Count);
             Assert.True(_productPage.list_productItems.Count == 12);
