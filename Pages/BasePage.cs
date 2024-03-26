@@ -43,7 +43,7 @@ namespace TBPsoftTest2.Pages
         public IWebElement SendText(IWebElement element, string text)
         {
             WaitForElement(element);
-            ClickElement(element);
+            //ClickElement(element);
             element.Clear();
             element.SendKeys(text);
             return element;

@@ -8,7 +8,7 @@ namespace TBPsoftTest2.Pages
 {
     public interface IHavePagination
     {
-        void GetCurrentPageNumber();
+        int GetCurrentPageNumber();
         void OpenNextPage();
         void OpenPreviousPage();
         void GoOnPage(int pageNumber);

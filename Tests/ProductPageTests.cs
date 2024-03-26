@@ -8,6 +8,7 @@ namespace TBPsoftTest2.Tests
     public class ProductPageTests :  BaseTest
     {
         private ProductPage _productPage;
+        string searchText = "Egyptian Cotton Towel";
         [SetUp]
         public void Setup()
         {
@@ -30,6 +31,7 @@ namespace TBPsoftTest2.Tests
             _productPage.list_prvaStrana = new List<string>();
             _productPage.list_drugaStrana = new List<string>();
 
+            Console.WriteLine("Current page is: " + _productPage.GetCurrentPageNumber().ToString());
             var productItems = driver.FindElements(By.XPath(".//div[contains(@class, 'product-item')]//h5"));
             Console.WriteLine("Prebrojano 1: " + _productPage.list_productItems.Count);
             Assert.True(productItems.Count == 12);
@@ -39,9 +41,12 @@ namespace TBPsoftTest2.Tests
                 //Console.WriteLine(productItem.Text);
                 _productPage.list_prvaStrana.Add(productItem.Text);
             }
-            _productPage.ClickElement(_productPage.secondPageLink);
+            //_productPage.ClickElement(_productPage.secondPageLink);
+            //_productPage.OpenNextPage();
+            _productPage.GoOnPage(2);
 
             Thread.Sleep(1000);
+            Console.WriteLine("Current page is: " + _productPage.GetCurrentPageNumber().ToString());
             var productItems2 = driver.FindElements(By.XPath(".//div[contains(@class, 'product-item')]//h5"));
             Console.WriteLine("Prebrojano 2: " + _productPage.list_productItems.Count);
             Assert.True(_productPage.list_productItems.Count == 12);
@@ -55,7 +60,7 @@ namespace TBPsoftTest2.Tests
 
             //inputSearch.Clear();
             //inputSearch.SendKeys("Egyptian Cotton Towel");
-            _productPage.SendText(_productPage.inputSearch, "Egyptian Cotton Towel");
+            _productPage.SendText(_productPage.inputSearch, searchText);
 
             //searchButton.Click();
             _productPage.ClickElement(_productPage.searchButton);

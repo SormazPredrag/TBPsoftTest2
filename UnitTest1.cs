@@ -38,12 +38,11 @@ namespace TBPsoftTest2
             scrollToElement(element);
             //element.Click();
             webDriver.ExecuteScript("arguments[0].click();", element);
-            //return element;
         }
         protected IWebElement sendText(IWebElement element, String text)
         {
             waitForElement(element);
-            clickElement(element);
+            //clickElement(element);
             element.Clear();
             element.SendKeys(text);
             return element;
