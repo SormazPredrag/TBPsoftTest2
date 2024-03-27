@@ -50,7 +50,7 @@ namespace TBPsoftTest2.Pages
 
         public void GoOnPage(int pageNumber)
         {
-            string pagePath = $".//a[@href='/Store?pageNumber={pageNumber.ToString()}']";
+            string pagePath = $".//a[@href='/Store?pageNumber={pageNumber}']";
             var pageNumberLink = Driver.FindElement(By.XPath(pagePath));
             ClickElement(pageNumberLink);
         }
