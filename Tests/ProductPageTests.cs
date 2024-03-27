@@ -75,7 +75,8 @@ namespace TBPsoftTest2.Tests
             Assert.True(_productPage.productPrice1.Enabled);
             Assert.True(_productPage.productPrice1.Text.Contains("Price: $49.99"));
             //var productPrice = webDriver.FindElement(By.XPath(".//*[contains(text(),'Price: $49.99')]"));
-            var productAvailable = driver.FindElement(By.XPath(".//*[contains(text(),'Available: Yes')]"));
+            //var productAvailable = driver.FindElement(By.XPath(".//*[contains(text(),'Available: Yes')]"));
+            Assert.True(_productPage.productItemsSearch[0].Text.Contains("Available: Yes"));
         }
 
     }
