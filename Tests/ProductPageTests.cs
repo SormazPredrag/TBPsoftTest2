@@ -30,22 +30,26 @@ namespace TBPsoftTest2.Tests
             _productPage.list_prvaStrana = new List<string>();
             _productPage.list_drugaStrana = new List<string>();
 
-            var productItems = driver.FindElements(By.XPath(".//div[contains(@class, 'product-item')]//h5"));
+            Console.WriteLine("Current page is: " + _productPage.GetCurrentPageNumber().ToString());
+            //var productItems = driver.FindElements(By.XPath(".//div[contains(@class, 'product-item')]//h5"));
             Console.WriteLine("Prebrojano 1: " + _productPage.list_productItems.Count);
-            Assert.True(productItems.Count == 12);
-
+            //Assert.True(productItems.Count == 12);
+            Assert.True(_productPage.list_productItems.Count == 12);
             foreach (var productItem in _productPage.list_productItems)
             {
                 //Console.WriteLine(productItem.Text);
                 _productPage.list_prvaStrana.Add(productItem.Text);
             }
-            _productPage.ClickElement(_productPage.secondPageLink);
+            //_productPage.ClickElement(_productPage.secondPageLink);
+            //_productPage.OpenNextPage();
+            _productPage.GoOnPage(2);
 
             Thread.Sleep(1000);
-            var productItems2 = driver.FindElements(By.XPath(".//div[contains(@class, 'product-item')]//h5"));
+            Assert.True(_productPage.GetCurrentPageNumber() == 2);
+            //var productItems2 = driver.FindElements(By.XPath(".//div[contains(@class, 'product-item')]//h5"));
             Console.WriteLine("Prebrojano 2: " + _productPage.list_productItems.Count);
             Assert.True(_productPage.list_productItems.Count == 12);
-            foreach (var productItem2 in productItems2)
+            foreach (var productItem2 in _productPage.list_productItems)
             {
                 //Console.WriteLine(productItem2.Text);
                 _productPage.list_drugaStrana.Add(productItem2.Text);
@@ -71,7 +75,8 @@ namespace TBPsoftTest2.Tests
             Assert.True(_productPage.productPrice1.Enabled);
             Assert.True(_productPage.productPrice1.Text.Contains("Price: $49.99"));
             //var productPrice = webDriver.FindElement(By.XPath(".//*[contains(text(),'Price: $49.99')]"));
-            var productAvailable = driver.FindElement(By.XPath(".//*[contains(text(),'Available: Yes')]"));
+            //var productAvailable = driver.FindElement(By.XPath(".//*[contains(text(),'Available: Yes')]"));
+            Assert.True(_productPage.productItemsSearch[0].Text.Contains("Available: Yes"));
         }
 
     }
