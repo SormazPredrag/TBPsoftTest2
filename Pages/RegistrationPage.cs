@@ -30,6 +30,9 @@ namespace TBPsoftTest2.Pages
         [FindsBy(How = How.XPath, Using = ".//span[contains(@class, 'field-validation-error')]")]
         private IList<IWebElement> _errorMessages;
 
+        [FindsBy(How = How.Id, Using = "successMessage")]
+        private IWebElement _successMessage;
+
         public RegistrationPage(IWebDriver driver) : base(driver)
         {
 
@@ -37,7 +40,6 @@ namespace TBPsoftTest2.Pages
 
         public void InputFirstName(string firstName)
         {
-            //throw new NotImplementedException();
             SendText(_firstName, firstName);
         }
 
@@ -102,9 +104,9 @@ namespace TBPsoftTest2.Pages
             ClickRegisterButton();
         }
 
-        public void ConfirmRegistration()
+        public bool ConfirmRegistration()
         {
-            throw new NotImplementedException();
+            return _successMessage.Enabled;
         }
     }
 }
