@@ -22,17 +22,38 @@ namespace TBPsoftTest2.Tests
         }
 
         [Parallelizable(ParallelScope.Self)]
-        [TestCase("UserName1", "UserLastName1", "user@m", "Password1", "Password1", "Invalid Email Address")]
-        [TestCase("UserName1", "UserLastName1", "user@mail.com", "Password1", "Password2", "Password do not match")]
+        //[TestCase("UserName1", "UserLastName1", "user@m", "Password1", "Password1", "Invalid Email Address")] //@Luka ovaj prolazi
+        [TestCase("UserName1", "UserLastName1", "user", "Password1", "Password1", "Invalid Email Address")]
+        [TestCase("UserName1", "UserLastName1", "user@mail.com", "Password1", "Password2", "Passwords do not match")]
         public void UserRegistrationInvalidData(string firstName, string lastName, string email, string password, string confirmPassword, string errorMessage)
         {
+            driver.Url = "http://ultrasound.tbpsoft.com/Registration/Registration";
+            Thread.Sleep(500);
+
+            UserRegistration newUser = new UserRegistration(firstName, lastName, email, password, confirmPassword);
+
+            _registrationPage.RegisterNewUser(newUser);
+            
+            Thread.Sleep(300);
+            List<string> errorMessages = _registrationPage.GetErrorMessages();
+
+            Assert.True(errorMessages.Contains(errorMessage));
+        }
+
+        [TestCase("UserName1", "UserLastName1", "user@m", "Password1", "Password1", "/Success")]
+        public void UserRegistrationSuccsess(string firstName, string lastName, string email, string password, string confirmPassword, string successUrl)
+        {
+            driver.Url = "http://ultrasound.tbpsoft.com/Registration/Registration";
+            Thread.Sleep(500);
+
             UserRegistration newUser = new UserRegistration(firstName, lastName, email, password, confirmPassword);
 
             _registrationPage.RegisterNewUser(newUser);
 
+            Thread.Sleep(300);
             List<string> errorMessages = _registrationPage.GetErrorMessages();
 
-            Assert.True(errorMessages.Contains(errorMessage));
+            Assert.True(_registrationPage.ConfirmRegistration() && driver.Url.Contains(successUrl));
         }
     }
 }

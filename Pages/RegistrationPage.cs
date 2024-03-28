@@ -6,26 +6,32 @@ namespace TBPsoftTest2.Pages
 {
     internal class RegistrationPage : BasePage
     {
-        [FindsBy(How = How.XPath, Using = "")]
+        [FindsBy(How = How.Id, Using = "FirstName")]
         private IWebElement _firstName;
 
-        [FindsBy(How = How.XPath, Using = "")]
+        [FindsBy(How = How.Id, Using = "LastName")]
         private IWebElement _lastName;
 
-        [FindsBy(How = How.XPath, Using = "")]
+        [FindsBy(How = How.Id, Using = "Email")]
         private IWebElement _email;
 
-        [FindsBy(How = How.XPath, Using = "")]
+        [FindsBy(How = How.Id, Using = "Password")]
         public IWebElement _password;
 
-        [FindsBy(How = How.XPath, Using = "")]
+        [FindsBy(How = How.Id, Using = "ConfirmPassword")]
         private IWebElement _confirmPassword;
 
-        [FindsBy(How = How.XPath, Using = "")]
+        [FindsBy(How = How.XPath, Using = ".//input[@type='submit']")]
         private IWebElement _register;
 
-        [FindsBy(How = How.XPath, Using = "")]
-        private IWebElement _errorMessage;
+        /*[FindsBy(How = How.XPath, Using = ".//span[class*='field-validation-error']")]
+        private IWebElement _errorMessage; */
+
+        [FindsBy(How = How.XPath, Using = ".//span[contains(@class, 'field-validation-error')]")]
+        private IList<IWebElement> _errorMessages;
+
+        [FindsBy(How = How.Id, Using = "successMessage")]
+        private IWebElement _successMessage;
 
         public RegistrationPage(IWebDriver driver) : base(driver)
         {
@@ -34,42 +40,58 @@ namespace TBPsoftTest2.Pages
 
         public void InputFirstName(string firstName)
         {
-            throw new NotImplementedException();
+            SendText(_firstName, firstName);
         }
 
         public void InputLastName(string lastName)
         {
-            throw new NotImplementedException();
+            SendText(_lastName, lastName);
         }
 
         public void InputEmail(string email)
         {
-            throw new NotImplementedException();
+            SendText(_email, email);
         }
 
         public void InputPassword(string password)
         {
-            throw new NotImplementedException();
+            SendText(_password, password);
         }
 
         public void InputConfirmPassword(string confirmPassword)
         {
-            throw new NotSupportedException();
+            SendText(_confirmPassword, confirmPassword);
         }
 
         public void ClickRegisterButton()
         {
-            throw new NotImplementedException();
+            ClickElement(_register);
         }
 
         public string GetErrorMessage()
         {
-            throw new NotImplementedException();
+            List<string> sveGreske = GetErrorMessages();
+            string rezultat = "";
+            foreach (var greska in sveGreske)
+            { 
+                rezultat+= greska;
+            }
+            return rezultat; 
         }
 
         public List<string> GetErrorMessages()
         {
-            throw new NotImplementedException();
+            List<string> greske = new List<string>();
+            //Console.WriteLine(_errorMessages.Count);
+            foreach (var error in _errorMessages)
+            {
+                if (!string.IsNullOrEmpty(error.Text))
+                {
+                    //Console.WriteLine(error.Text);
+                    greske.Add(error.Text);
+                }
+            }
+            return greske;
         }
 
         public void RegisterNewUser(UserRegistration user)
@@ -82,9 +104,9 @@ namespace TBPsoftTest2.Pages
             ClickRegisterButton();
         }
 
-        public void ConfirmRegistration()
+        public bool ConfirmRegistration()
         {
-            throw new NotImplementedException();
+            return _successMessage.Enabled;
         }
     }
 }
