@@ -37,8 +37,7 @@ namespace TBPsoftTest2.Tests
             Thread.Sleep(300);
             List<string> errorMessages = _registrationPage.GetErrorMessages();
 
-            Assert.True(_registrationPage.ConfirmRegistration());
-            //Assert.True(errorMessages.Contains(errorMessage));
+            Assert.True(errorMessages.Contains(errorMessage));
         }
 
         [TestCase("UserName1", "UserLastName1", "user@m", "Password1", "Password1", "/Success")]
@@ -54,7 +53,7 @@ namespace TBPsoftTest2.Tests
             Thread.Sleep(300);
             List<string> errorMessages = _registrationPage.GetErrorMessages();
 
-            Assert.True(driver.Url.Contains(successUrl));
+            Assert.True(_registrationPage.ConfirmRegistration() && driver.Url.Contains(successUrl));
         }
     }
 }
