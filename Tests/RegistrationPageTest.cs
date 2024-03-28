@@ -39,5 +39,21 @@ namespace TBPsoftTest2.Tests
 
             Assert.True(errorMessages.Contains(errorMessage));
         }
+
+        [TestCase("UserName1", "UserLastName1", "user@m", "Password1", "Password1", "/Success")]
+        public void UserRegistrationSuccsess(string firstName, string lastName, string email, string password, string confirmPassword, string successUrl)
+        {
+            driver.Url = "http://ultrasound.tbpsoft.com/Registration/Registration";
+            Thread.Sleep(500);
+
+            UserRegistration newUser = new UserRegistration(firstName, lastName, email, password, confirmPassword);
+
+            _registrationPage.RegisterNewUser(newUser);
+
+            Thread.Sleep(300);
+            List<string> errorMessages = _registrationPage.GetErrorMessages();
+
+            Assert.True(driver.Url.Contains(successUrl));
+        }
     }
 }
